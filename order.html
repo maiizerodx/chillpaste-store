@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order - Chill Store</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script defer src="js/order.js"></script>
+</head>
+<body class="text-gray-900 bg-gray-100">
+
+    <header class="p-4 text-white bg-amber-600">
+        <div class="container flex items-center justify-between mx-auto">
+            <h1 class="text-3xl font-bold">Chilli Store</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
+                    <li><a href="about.html" class="hover:text-gray-300">About</a></li>
+                    <li><a href="order.html" class="hover:text-gray-300">Order</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container p-4 mx-auto">
+        <section class="p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="mb-4 text-2xl font-bold">Place Your Order</h2>
+            <form id="orderForm">
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+                    <div class="p-4 bg-white rounded-lg shadow-md">
+                        <img src="images/red-curry-paste.jpg" alt="Product 1" class="object-cover w-full h-48 rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold">พริกแกงแดง</h3>
+                            <p class="text-gray-700">Price: ฿300 / kg</p>
+                            <input type="number" id="product1" name="product1" class="w-full p-2 mt-1 border border-gray-300 rounded-md" min="0" value="0">
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow-md">
+                        <img src="images/yellow-curry-paste.jpg" alt="Product 2" class="object-cover w-full h-48 rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold">พริกแกงเหลือง</h3>
+                            <p class="text-gray-700">Price: ฿450 / kg</p>
+                            <input type="number" id="product2" name="product2" class="w-full p-2 mt-1 border border-gray-300 rounded-md" min="0" value="0">
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow-md">
+                        <img src="images/green-curry-paste.jpg" alt="Product 3" class="object-cover w-full h-48 rounded-t-lg">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold">พริกแกงเขียวหวาน</h3>
+                            <p class="text-gray-700">Price: ฿600 / kg</p>
+                            <input type="number" id="product3" name="product3" class="w-full p-2 mt-1 border border-gray-300 rounded-md" min="0" value="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <button type="button" onclick="calculateTotal()" class="p-2 text-white rounded-md bg-amber-600">Calculate Total</button>
+                </div>
+                <div class="mt-4">
+                    <p class="text-lg font-semibold">Total: ฿<span id="totalAmount">0.00</span></p>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="p-4 text-center text-white bg-stone-400">
+        &copy; 2024 Chill Store. All rights reserved.
+    </footer>
+
+    <script>
+        function calculateTotal() {
+            const product1Price = 300.00;
+            const product2Price = 450.00;
+            const product3Price = 600.00;
+
+            const product1Amount = document.getElementById('product1').value;
+            const product2Amount = document.getElementById('product2').value;
+            const product3Amount = document.getElementById('product3').value;
+
+            const total = (product1Price * product1Amount) + (product2Price * product2Amount) + (product3Price * product3Amount);
+
+            document.getElementById('totalAmount').innerText = total.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>
