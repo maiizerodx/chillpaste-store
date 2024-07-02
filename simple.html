@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <h1 class="text-3xl font-bold text-cyan-800">Simple hamonic</h1>
+    <div class="w-64 p-3 m-4 border">
+      <img
+        class="mt-4 border-gray-700 rounded-lg border-x-2"
+        src="images/Simple-Harmonic_spring.jpg"
+        width="300px"
+      />
+      <div class="flex flex-col">
+        <label for="m-value">ค่า m</label>
+        <input
+          class="p-1 m-1 border border-gray-600 rounded-lg"
+          type="number"
+          step="0.0001"
+          id="m-value"
+        />
+      </div>
+      <div class="flex flex-col">
+        <label for="m-value">ค่า k</label>
+        <input
+          class="p-1 m-1 border border-gray-600 rounded-lg"
+          type="number"
+          step="0.0001"
+          id="k-value"
+        />
+      </div>
+      <div class="">ค่า T = <span id="t-value"></span></div>
+      <button
+        class="mt-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        onclick="calculateTValue()"
+      >
+        หาค่า T
+      </button>
+    </div>
+
+    <hr />
+    ค่าความเร็ว V จากสูตร V= s/t
+
+    <div class="w-64 p-3 m-4 border">
+      <div>
+        <label for="m-value">ค่า s</label>
+        <input
+          type="number"
+          step="0.0001"
+          id="s-value"
+          class="block p-1 m-1 border border-gray-600 rounded-lg"
+        />
+      </div>
+      <div>
+        <label for="m-value">ค่า t</label>
+        <input
+          type="number"
+          step="0.0001"
+          id="time-value"
+          class="block p-1 m-1 border border-gray-600 rounded-lg"
+        />
+      </div>
+      <div class="">ค่า V = <span id="v-value">0</span> m/s</div>
+      <button
+        type="button"
+        class="block mt-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        onclick="calVelocity()"
+      >
+        หาค่า V
+      </button>
+    </div>
+
+    <script>
+      console.log("Hello");
+      function calculateTValue() {
+        var m = document.querySelector("#m-value").value;
+        var k = document.querySelector("#k-value").value;
+
+        var t = 0;
+
+        t = 2 * Math.PI * Math.sqrt(m / k);
+
+        console.log("m =" + m);
+        console.log("k =" + k);
+        console.log("t =" + t);
+
+        document.querySelector("#t-value").innerHTML = t;
+      }
+
+      function calVelocity() {
+        var s = document.querySelector("#s-value").value;
+        var t = document.querySelector("#time-value").value;
+
+        var v = 0;
+
+        v = s / t;
+        console.log("t =" + t);
+        console.log("v =" + v);
+        document.querySelector("#v-value").innerHTML = v;
+      }
+    </script>
+  </body>
+</html>
